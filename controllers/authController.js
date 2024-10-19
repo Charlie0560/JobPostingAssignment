@@ -104,19 +104,16 @@ exports.register = async (req, res) => {
 };
 
 exports.verifyOTPAndSave = async (req, res) => {
-  const { companyEmail, otp, name, phone, companyName, employeeSize, password } = req.body;
-  const numericOtp = Number(otp);
-  const numericPhone = Number(phone);
-
+  const { companyEmail, otp, name, phone, companyName, employeeSize } = req.body;
   const storedOTP = await Otp.findOne({ email: companyEmail });
-  if (!storedOTP || storedOTP.otp !== numericOtp) {
+  if (!storedOTP || storedOTP.otp !== otp) {
     return res.status(400).send("Invalid or expired OTP");
   }
 
   try {
     const company = new Company({
       name,
-      phone: numericPhone,
+      phone,
       companyEmail,
       companyName,
       employeeSize: Number(employeeSize),
