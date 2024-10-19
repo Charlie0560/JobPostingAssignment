@@ -79,7 +79,7 @@ exports.verifyLoginOtp = async (req, res) => {
   // Clean up stored OTP after successful verification
   await Otp.deleteOne({ email: companyEmail });
 
-  res.status(200).json({ message: "Login successful", token });
+  res.status(200).json({ message: "Login successful", token ,companyData: company});
 };
 
 // Registration Function
@@ -160,7 +160,7 @@ exports.verifyOTPAndSave = async (req, res) => {
     // Create a JWT token
     const token = jwt.sign({ id: company._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
-    res.status(201).json({ message: "Company registered successfully", token });
+    res.status(201).json({ message: "Company registered successfully", token ,companyData: company });
   } catch (error) {
     console.error("Error registering company:", error);
     res.status(500).json({ message: "Error registering company", error });
