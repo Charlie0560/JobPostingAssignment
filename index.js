@@ -17,7 +17,7 @@ const app = express();
 app.use(
   cors({
     credentials: true,
-    origin: ["http://localhost:3000"],
+    origin: ["http://localhost:3000","https://job-posting-frontend-xi.vercel.app"],
   })
 );
 // Middleware
@@ -38,16 +38,6 @@ app.get('/api/auth/verify', verifyToken, (req, res) => {
   res.status(200).send("Token is valid.");
 });
 
-// const path = require("path");
-// const __dirname1 = path.resolve();
-// if ((process.env.NODE_ENV = "production")) {
-//     app.use(express.static(path.join(__dirname1, "/frontend/build")));
-
-//     app.get("*", (req, res) => {
-//       res.sendFile(path.resolve(__dirname1, "frontend", "build", "index.html"));
-//     });
-//   } else {
-//   }
 app.get("/", (req, res) => {
   res.send("API Is Running Successfully");
 });
