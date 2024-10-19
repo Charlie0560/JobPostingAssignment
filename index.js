@@ -3,9 +3,9 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
-const authRoutes = require("../backend/routes/auth"); // Import your routes
+const authRoutes = require("./routes/auth"); // Import your routes
 const cors = require("cors");
-const { verifyToken } = require("../backend/controllers/authController"); // Adjust the path accordingly
+const { verifyToken } = require("./controllers/authController"); // Adjust the path accordingly
 
 
 // Load environment variables from .env file
