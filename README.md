@@ -35,8 +35,8 @@ add env variables
 MONGODB_URI=
 PORT=5000
 JWT_SECRET=
-EMAIL=
-EMAIL_PASSWORD=
+EMAIL= "email from which you want to send the mails"
+EMAIL_PASSWORD= "app password from google settings(less secure app password)"
 ```
 
 install the modules/dependencies
