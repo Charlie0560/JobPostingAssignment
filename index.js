@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
 const authRoutes = require("./routes/auth"); // Import your routes
+const jobRoutes = require("./routes/job"); // Import your routes
+const emailLogRoutes = require("./routes/emaillog"); // Import your routes
 const cors = require("cors");
 const { verifyToken } = require("./controllers/authController"); // Adjust the path accordingly
 
@@ -34,6 +36,8 @@ mongoose
 
 // Define routes
 app.use("/api/auth", authRoutes); // Mount the auth routes under the /api/auth path
+app.use("/api/jobs", jobRoutes); // Register the job routes
+app.use("/api/emailLogs", emailLogRoutes); // Register the job routes
 app.get('/api/auth/verify', verifyToken, (req, res) => {
   res.status(200).send("Token is valid.");
 });
