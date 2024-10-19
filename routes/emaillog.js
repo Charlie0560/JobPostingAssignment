@@ -3,6 +3,6 @@ const emailLogController = require("../controllers/emailLogsController");
 
 const router = express.Router();
 
-router.get("/getlogs", emailLogController.getEmailLogsForCompany); // Route to post a job
+router.get("/getlogs", emailLogController.getEmailLogsForCompany); 
 
 module.exports = router;

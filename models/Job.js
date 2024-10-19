@@ -1,4 +1,3 @@
-// models/Job.js
 const mongoose = require('mongoose');
 
 const jobSchema = new mongoose.Schema({
@@ -7,6 +6,8 @@ const jobSchema = new mongoose.Schema({
   experienceLevel: String,
   endDate: Date,
   companyId: { type: mongoose.Schema.Types.ObjectId, ref: 'Company' },
+}, {
+  timestamps: true,
 });
 
 module.exports = mongoose.model('Job', jobSchema);

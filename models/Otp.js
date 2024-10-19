@@ -1,11 +1,10 @@
-// models/Otp.js
 const mongoose = require('mongoose');
 
 const otpSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
-    unique: true, // Ensure only one OTP per email
+    unique: true, 
   },
   otp: {
     type: Number,
@@ -14,7 +13,7 @@ const otpSchema = new mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now,
-    expires: '10m' // Automatically remove the document after 10 minutes
+    expires: '10m' 
   }
 });
 

@@ -1,14 +1,14 @@
-// models/Company.js
 const mongoose = require('mongoose');
 
 const companySchema = new mongoose.Schema({
-  name: { type: String, required: true }, // The name of the contact person or representative
-  phone: { type: String, required: true }, // Phone number of the company
-  companyEmail: { type: String, unique: true, required: true }, // Email address of the company
-  companyName: { type: String, required: true }, // Official name of the company
-  employeeSize: { type: Number, min: 0 }, // Number of employees in the company
-  verified: { type: Boolean, default: false }, // Verification status
+  name: { type: String, required: true },
+  phone: { type: String, required: true },
+  companyEmail: { type: String, unique: true, required: true },
+  companyName: { type: String, required: true },
+  employeeSize: { type: Number, min: 0 },
+  verified: { type: Boolean, default: false },
+}, {
+  timestamps: true,
 });
 
-// Create and export the Company model
 module.exports = mongoose.model('Company', companySchema);
